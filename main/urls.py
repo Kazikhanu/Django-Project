@@ -3,7 +3,7 @@ from . import views
 from .views import *
 
 urlpatterns = [
-  path('', index),
+  path('', index , name='home'),
   path('cats/<int:catid>/', categories),
   # path('errors403/', views.error403, name='403'),
   # path('errors404/', views.error403, name='404'),

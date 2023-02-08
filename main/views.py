@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 
 # Create your views here.
 
@@ -10,7 +11,7 @@ def index(request):
 
 def categories(request , catid):
     if (catid > 10):
-        raise Http404()
+        return redirect('home' , permanent=False)
     if(request.GET):
         print(request.GET)
     return HttpResponse(f"<h1>Vibor tipa doma</h1><p>{catid}</p>")
