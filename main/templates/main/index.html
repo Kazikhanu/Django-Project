@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Baspana.kz</h1>
+{% extends 'main/base.html' %}
 
-</body>
-</html>
+{% block content %}
+<h1> {{title}} </h1>
+<ul>
+    {% for p in posts %}
+    <li>
+        <h2>{{p.description}}</h2>
+        <p>{{p.price}}</p>
+        <hr>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

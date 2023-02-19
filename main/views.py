@@ -1,12 +1,17 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect
 
+from .models import *
 
 # Create your views here.
-
+menu = ["Sait jaily" , "Pikir qosu", "Keri bailanys" , "Kiru"]
 
 def index(request):
-    return render(request, 'main/index.html')
+    posts = Kvart.objects.all()
+    return render(request, 'main/index.html', {'posts':posts, 'menu': menu, 'title': 'Basty bet'})
+
+def about(request):
+    return render(request, 'main/about.html', {'menu': menu, 'title': 'Sait jaily'})
 
 
 def categories(request , catid):
