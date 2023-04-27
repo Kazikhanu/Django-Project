@@ -16,15 +16,23 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
+from rest_framework import routers
 
 from coolsite import settings
+from women.templatetags.women_tags import register
 from women.views import *
 from django.urls import path, include
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('captcha/', include('captcha.urls')),
     path('', include('women.urls')),
+    # path('admin/', admin.site.urls),
+    # path('api/v1/kvartlist/',  WomenAPIList.as_view()),
+    # path('api/v1/kvartlist/<int:pk>/', WomenAPIList.as_view()),
 ]
 
 if settings.DEBUG:
